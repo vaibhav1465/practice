@@ -1,0 +1,139 @@
+package dsa;
+class Node{
+	int d;
+	Node next;
+	
+}
+class Text {
+Node last;
+Text()
+{
+	last=null;
+}
+void insertFirst(int d)
+{
+	Node n=new Node();
+	n.d=d;
+	if(last==null)
+	{
+		last=n;
+		n.next=last;
+	}
+	else
+	{
+		n.next=last.next;
+		last.next=n;
+	}
+}
+void insertLast(int d)
+{
+	Node n=new Node();
+	n.d=d;
+	if(last==null)
+	{
+		last=n;
+		last.next=last;
+	}
+	else
+	{
+		n.next=last.next;
+		last.next=n;
+		last=n;
+	}
+}
+void viewList()
+{
+	if(last==null)
+	{
+		System.out.println("empty");
+	}
+	else
+	{
+	Node n=last.next;
+	Node t=last.next;
+	while(true)
+	{
+		System.out.println(n.d);
+		n=n.next;
+		if(n==t)
+			break;
+	}
+	}
+}
+Node search(int d)
+{
+	Node n=last.next;
+	while(true)
+	{
+		if(n.d==d)
+			return n;
+		n=n.next;
+		if(n==last.next)
+			return null;
+	}
+}
+void insertAfter(int d,int nd)
+{
+	Node n=search(d);
+	if(n==null)
+		System.out.println("Number not found");
+	else
+	{
+		Node nw=new Node();
+		nw.d=nd;
+		nw.next=n.next;
+		n.next=nw;
+		if(n==last)
+			last=nw;
+	}
+}
+void deleteFirst()
+{
+	if(last==null)
+	{
+		System.out.println("empty");
+	}
+	else
+	{
+	Node t=last.next;
+	last.next=t.next;
+}
+}
+void deleteLast()
+{
+	if(last==null)
+	{
+		System.out.println("empty");
+	}
+	else
+	{
+	Node t=last.next;
+	while(t.next!=last)
+		t=t.next;
+	t.next=last.next;
+	last=t;
+	}
+}
+void deleteElement(int d)
+{
+	Node n=search(d);
+	if(n==last)
+		deleteLast();
+	else if(n==last.next)
+		deleteFirst();
+	else
+	{
+		Node t=last.next;
+		while(t.next!=n)
+				t=t.next;
+		t.next=n.next;
+	}
+		
+	
+}
+}
+public class list{
+public static void main(String[] args) {
+	Text l1= new Text();
+}
+}
