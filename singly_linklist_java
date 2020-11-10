@@ -108,7 +108,37 @@ class List2 {
     }
     void reverse()
     {
-        
+        Node2 t=start,r=null;
+        while(t.next!=null) {
+            r=t;
+            t = t.next;
+        }
+        r.next=null;
+        Node2 ns=t;
+        Node2 ns1=t;
+        t=start;
+        while(true)
+        {
+            r=null;
+            while(t.next!=null){
+                r=t;
+                t=t.next;
+            }
+            ns.next=t;
+            if(r!=null)
+                r.next=null;
+            ns=ns.next;
+            t=start;
+            if(t==r)
+            {
+                ns.next=start;
+                break;
+            }
+
+
+        }
+        start=ns1;
+
     }
     void viewList()
     {
