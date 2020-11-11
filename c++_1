@@ -1,0 +1,38 @@
+#include<iostream>
+using namespace std;
+class person
+{
+	private:
+		int a;
+		char *n;
+	public:
+		void setname(char *name)
+		{
+			n=name;
+		}
+		void setage(int a)
+		{
+			this->a=a;
+		}
+		char* getname()
+		{
+			return n;
+		}
+		int getage()
+		{
+			return a;
+		}
+};
+class employee :public person
+{
+	private:
+		int eid;
+		char name[20];
+};
+int main()
+{
+	person p;
+	char n[20]="vaibhav";
+	p.setname(n);
+	cout<<p.getname();
+}
