@@ -1,0 +1,82 @@
+#include<iostream>
+using namespace std;
+class complex
+{
+	private:
+		int x,y;
+	public:
+		void setData(int a,int b)
+		{
+			x=a;
+			y=b;
+		}
+		void showData()
+		{
+			cout<<"\n"<<x<<" +"<<y<<"i";
+		}
+		complex operator-()
+		{
+			complex t;
+			t.x=-x;
+			t.y=-y;
+			return t;
+		}
+		void operator++()
+		{
+			++x;
+			++y;
+		}
+	/*	complex operator++()
+		{
+			t.x+=1;
+			t.y+=1;
+			return t;
+		}*/
+};
+class time
+{
+	private:
+		int h,m,s;
+	public:
+		void setdata(int h1,int m1,int s1)
+		{
+			h=h1;
+			m=m1;
+			s=s1;
+		}
+		void showdata()
+		{
+			cout<<"\n"<<h<<":"<<m<<":"<<s;
+		}
+		time operator!()
+		{
+			time t;
+			if(h==0&&m==0&&s==0){
+		     t.h=1;
+		     t.m=t.s=0;
+		 }
+		     else
+		     t.h=t.m=t.s=0;
+		     return t;
+		}
+		void operator++()
+		{
+			++s;
+		}
+		
+
+};
+int main()
+{
+	/*complex c1,c2,c3;
+	c1.setData(1,5);
+	c2.setData(2,6);
+	c3=-c2;
+	++c1;
+	c3.showData();*/
+	time t,t2;
+	t.setdata(0,5,0);
+	t2=!t;
+	++t2;
+	t2.showdata();
+}
